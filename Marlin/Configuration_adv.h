@@ -420,7 +420,11 @@
  * Multiple extruders can be assigned to the same pin in which case
  * the fan will turn on when any selected extruder is above the threshold.
  */
-#define E0_AUTO_FAN_PIN -1
+#if HOTENDS == 1
+  #define E0_AUTO_FAN_PIN P2_04 // SKR 1.4 can use E1 pin to control a 2nd fan instead
+#else
+  #define E0_AUTO_FAN_PIN -1
+#endif
 #define E1_AUTO_FAN_PIN -1
 #define E2_AUTO_FAN_PIN -1
 #define E3_AUTO_FAN_PIN -1
